@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 
-function Users() {
+function Users({ userId }) {
     const [userCount, setUserCount] = useState(0);
     const [users, setUsers] = useState([]);
 
+    let params = useParams();
 
     const getUsers = async () => {
         fetch('/api/test')
@@ -29,6 +31,7 @@ function Users() {
 
     return (
         <div>
+            <h1>Your ID is #{ params.userId }</h1>
             <button onClick={getUsers}>Get Users</button>
             { setCount() }
             

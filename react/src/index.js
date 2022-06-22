@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -22,6 +22,7 @@ root.render(
           <Route path="" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="users" element={<Users />} />
+          <Route path="users/:userId" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>

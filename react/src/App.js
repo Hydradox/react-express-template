@@ -17,7 +17,7 @@ function App() {
       <nav>
         <Link to="/" element={<Home />}>Home</Link>
         <Link to="/about" element={<About />}>About</Link>
-        <Link to="/users" element={<Users />}>Users</Link>
+        <Link to="/users/5" element={<Users />}>Users</Link>
       </nav>
 
       <Outlet />
