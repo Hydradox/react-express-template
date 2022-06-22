@@ -4,10 +4,9 @@
   "description": "THIS IS YOUR PROJECT DESCRIPTION",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --trace-warnings index.js",
+    "dev": "echo !!REMEMBER TO START REACT IN ANOTHER CONSOLE!! && cross-env NODE_ENV=development nodemon --trace-warnings index.js",
     "build": "cd react && npm run build",
-    "start": "cross-env NODE_ENV=production node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "Jaime Cantos",
@@ -20,5 +19,11 @@
   "devDependencies": {
     "nodemon": "^2.0.16"
   },
-  "type": "module"
+  "type": "module",
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules",
+      "react"
+    ]
+  }
 }
