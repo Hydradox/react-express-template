@@ -1,0 +1,12 @@
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a.active {
+    background-color: #eee;
+    color: #555;
+}
