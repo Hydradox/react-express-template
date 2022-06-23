@@ -9,17 +9,18 @@ import api from './routes/api.js';
 
 // Consts and Vars
 const app = express();
-const port = (isProd() ? config.production.port : config.development.port);
+const port = (isProd ? config.production.port : config.development.port);
 
 
 
 export default {
     config: () => {
-        // Set up express server
-        if(isProd()) app.use(express.static(config.static));
+        // Middleware
+        if(isProd) app.use(express.static(config.static));
         app.use(express.json());
         app.use(express.urlencoded({ extended: true }));
 
+        
         // Set up routes in external file
         // app.use('/', routes());
         app.use('/api', api());

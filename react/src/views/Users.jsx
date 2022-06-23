@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import UserTable from '../components/UserTable/UserTable';
 
 
-function Users({ userId }) {
+
+function Users() {
     const [userCount, setUserCount] = useState(0);
     const [users, setUsers] = useState([]);
+    const [dots, setDots] = useState('.');
 
-    let params = useParams();
 
     const getUsers = async () => {
         fetch('/api/test')
@@ -18,26 +20,37 @@ function Users({ userId }) {
 
     const setCount = () => {
         if(userCount === 0) {
-            return <div>Loading...</div>
+            return <div>Loading users { dots }</div>
         } else {
+            clearTimeout(timeout);
             return <div style={{ textDecoration: 'underline' }}>Loaded { users.length } users</div>
         }
     }
+
+
+    const timeout = setTimeout(() => {
+        console.log('timeout');
+        if(dots.length === 3) {
+            setDots('.');
+        } else {
+            setDots(dots + '.');
+        }
+    }, 400);
 
     useEffect(() => {
         setUserCount(users.length);
     }, [users]);
 
+    useEffect(() => {
+        getUsers();
+    }, []);
+
 
     return (
         <div>
-            <h1>Your ID is #{ params.userId }</h1>
-            <button onClick={getUsers}>Get Users</button>
             { setCount() }
             
-            { users.map((user, index) => {
-                return <div key={index}>{user.name}</div>
-            }) }
+            <UserTable users={users} />
         </div>
     );
 }

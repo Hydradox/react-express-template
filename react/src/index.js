@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import reportWebVitals from './tests/reportWebVitals';
 
+// CSS
+import './index.css';
 
 // Import views
-import Home from './views/Home.js';
-import About from './views/About.js';
-import Users from './views/Users.js';
+import App from './App';
+import Home from './views/Home';
+import About from './views/About';
+import Users from './views/Users';
 
 
+// Load app to root element
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -22,7 +24,6 @@ root.render(
           <Route path="" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="users" element={<Users />} />
-          <Route path="users/:userId" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>
