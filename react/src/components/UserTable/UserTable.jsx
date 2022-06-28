@@ -9,15 +9,16 @@ function UserTable({ users }) {
 
 
     const printUsers = () => {
-        if(userList != undefined) {
+        if(userList !== undefined) {
             return users.map((user, index) => {
                 return (
                     <tr key={index}>
+                        <td>{index + 1}</td>
                         <td>{user.name}</td>
                         <td>{user.age}</td>
                     </tr>
                 );
-            }).reverse();
+            });
         }
     }
 
@@ -26,6 +27,7 @@ function UserTable({ users }) {
         <table className='User-table'>
             <thead>
                 <tr>
+                    <td>Index</td>
                     <td>Name</td>
                     <td>Age</td>
                 </tr>
